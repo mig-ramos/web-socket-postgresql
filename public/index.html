@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificação de Alteração</title>
+</head>
+<body>
+    <h1>Alteração no Banco de Dados</h1>
+    <div id="mensagem">Aguardando alterações...</div>
+  
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+  
+      // Receber a notificação do servidor
+      socket.on('update', (msg) => {
+        document.getElementById('mensagem').innerText = 'Alteração no banco: ' + msg;
+      });
+    </script>
+  </body>
+  </html>
